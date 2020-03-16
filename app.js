@@ -117,7 +117,7 @@ function removeTaskFromLocalStorage(taskItem) {
   if (localStorage.getItem('tasks') === null) {
     tasks = [];
   } else {
-    tasks = JSON.parse(localStorage.getItem('tasks'))
+    tasks = JSON.parse(localStorage.getItem('tasks'));
   }
 
   tasks.forEach(function (task, index) {
@@ -141,6 +141,14 @@ function clearTasks(e) {
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
+
+  // Clear from local storage
+  clearTasksFromLocalStorage();
+}
+
+// Clear tasks from LS
+function clearTasksFromLocalStorage() {
+  localStorage.clear();
 }
 
 // Filter tasks
